@@ -11,7 +11,7 @@ if __name__ == "__main__":
     FILENAME_AND_EXTENSIONS = sorted(map(str, os.listdir(PATH_TO_INSTANCES)))
     for (filename_and_extension, r, k) in tqdm(product(FILENAME_AND_EXTENSIONS, RS, KS)):
         filename = os.path.splitext(filename_and_extension)[0] + f"_{r:.1f}_{k}" 
-        if filename + ".json" in os.listdir(PATH_TO_BNC_RESULTS):# or optimum_already_known(filename_and_extension, r, k):
+        if filename + ".json" in os.listdir(PATH_TO_BNC_RESULTS):
             continue
 
         p, s, t_max = load_instance(os.path.join(PATH_TO_INSTANCES, filename_and_extension))
